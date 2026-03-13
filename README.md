@@ -33,6 +33,7 @@ npm install -g @mammadovziya/ytmusic-cli
 
 ### via Homebrew (macOS)
 ```sh
+# Until it is merged into homebrew-core:
 brew install mammadovziya/tap/ytmusic-cli
 ```
 
