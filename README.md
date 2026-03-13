@@ -1,20 +1,20 @@
-# ytmusic-cli
+# ytmusic-player
 
 <div align="center">
-  <img src="assets/ytmusic-cli-ui.png" width="600" alt="ytmusic-cli Hero">
+  <img src="assets/ytmusic-player-ui.png" width="600" alt="ytmusic-player Hero">
 </div>
 
 YouTube Music player for your terminal. Search and stream music directly from YouTube — no browser, no ads, no distractions.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-0.3.3-orange.svg)](https://github.com/mammadovziya/ytmusic-cli/releases)
+[![Version](https://img.shields.io/badge/version-0.3.4-orange.svg)](https://github.com/mammadovziya/ytmusic-player/releases)
 [![Built with Bun](https://img.shields.io/badge/Built%20with-Bun-fbf0df?logo=bun&logoColor=black)](https://bun.sh)
 
 ---
 
 ## Performance-First Experience
 
-`ytmusic-cli` is designed for users who live in the terminal. It provides a lightweight, keyboard-driven interface to the entire YouTube Music library without the overhead of a web browser.
+`ytmusic-player` is designed for users who live in the terminal. It provides a lightweight, keyboard-driven interface to the entire YouTube Music library without the overhead of a web browser.
 
 - **Fast & Lightweight** — Native performance powered by [Bun](https://bun.sh).
 - **Ad-Free** — Pure music streaming without interruptions.
