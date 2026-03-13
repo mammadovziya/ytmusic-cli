@@ -1,113 +1,99 @@
 # ytmusic-cli
 
+<div align="center">
+  <img src="assets/hero.png" width="600" alt="ytmusic-cli Hero">
+</div>
+
 YouTube Music player for your terminal. Search and stream music directly from YouTube — no browser, no ads, no distractions.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/badge/version-0.3.2-orange.svg)](https://github.com/mammadovziya/ytmusic-cli/releases)
+[![Built with Bun](https://img.shields.io/badge/Built%20with-Bun-fbf0df?logo=bun&logoColor=black)](https://bun.sh)
+
+---
+
+## Performance-First Experience
+
+`ytmusic-cli` is designed for users who live in the terminal. It provides a lightweight, keyboard-driven interface to the entire YouTube Music library without the overhead of a web browser.
+
+- **Fast & Lightweight** — Native performance powered by [Bun](https://bun.sh).
+- **Ad-Free** — Pure music streaming without interruptions.
+- **Offline-Ready** — Download your favorites for local playback.
+- **Privacy-Focused** — No tracking, just your music.
 
 ## Requirements
 
-- [mpv](https://mpv.io) — media player
-- [yt-dlp](https://github.com/yt-dlp/yt-dlp) — YouTube stream extractor
+The player requires the following binaries in your system path:
 
-**macOS**
-```sh
-brew install mpv yt-dlp
-```
-
-**Linux (Debian/Ubuntu)**
-```sh
-sudo apt install mpv
-pip install yt-dlp
-```
-
-**Windows**
-```sh
-winget install mpv.mpv
-winget install yt-dlp.yt-dlp
-```
+- **mpv** — Media player backend.
+- **yt-dlp** — YouTube stream extractor.
 
 ## Installation
 
-### via NPM
+### macOS (Recommended)
+Install via Homebrew to get everything set up automatically:
+
+```sh
+# Tap the repository
+brew tap mammadovziya/tap
+
+# Install the player
+brew install ytmusic-cli
+```
+
+### via NPM (Universal)
+If you already have a Node.js or Bun environment:
+
 ```sh
 npm install -g ytmusic-player
 ```
 
-### via Homebrew (macOS)
-```sh
-# Until it is merged into homebrew-core:
-brew install mammadovziya/tap/ytmusic-cli
-```
-
-## Usage
-
-```sh
-ytmusic-cli
-```
-
-### Shell Shortcut (Fast Access)
-For even faster access, you can add an alias to your shell profile (`.zshrc` or `.bashrc`):
-```sh
-alias ym='ytmusic-cli'
-```
-Now just type `ym` to start listening!
+---
 
 ## Controls
 
-### Player
+The interface is completely keyboard-driven. Below are the primary controls used during playback and navigation.
 
+### Player controls
 | Key | Action |
-|-----|--------|
-| `Space` | Pause / Resume |
-| `←` / `→` | Seek -10s / +10s |
-| `N` | Next track |
-| `P` | Previous track |
-| `F` | Toggle favorite |
-| `X` | Toggle shuffle |
-| `R` | Cycle Repeat (Off / One / All) |
-| `U` | View playback queue |
-| `I` | Track info & URL |
-| `A` | Add current track to playlist |
-| `O` | Open playlists |
-| `L` | Open favorites |
-| `D` | Open downloads |
-| `W` | Download / Delete track |
-| `H` | Help menu |
-| `G` | Cycle language |
-| `S` | Back to search |
-| `Q` / `Ctrl+C` | Quit |
+| :--- | :--- |
+| **Space** | Pause / Resume |
+| **← / →** | Seek -10s / +10s |
+| **N** | Next track |
+| **P** | Previous track |
+| **F** | Toggle favorite |
+| **X** | Toggle shuffle |
+| **R** | Cycle Repeat (Off / One / All) |
+| **U** | View playback queue |
+| **I** | Track info & URL |
+| **A** | Add to playlist |
+| **S** | Back to search |
+| **Q / Ctrl+C** | Quit application |
 
-### Search
+## Interface
 
-| Key | Action |
-|-----|--------|
-| Type + `Enter` | Search |
-| `↑` / `↓` | Navigate results |
-| `Enter` | Play selected track |
-| `L` | Open favorites |
-| `O` | Open playlists |
-| `D` | Open downloads |
-| `H` | Help menu |
+The player features a clean, high-contrast terminal user interface (TUI) optimized for clarity and speed.
 
-### Playlists & Lists
+<div align="center">
+  <img src="assets/hero.png" width="550" alt="Interface Preview">
+  <p><i>The adaptive interface showing a live playback session with queue and track details.</i></p>
+</div>
 
-| Key | Action |
-|-----|--------|
-| `Enter` | Open playlist / Play track |
-| `C` | Create new playlist |
-| `R` | Rename playlist |
-| `D` | Delete playlist / Remove track |
-| `W` | Download all tracks in list |
-| `Esc` / `Q` | Go back |
+---
 
 ## Features
 
-- **Search & Play** — Search YouTube and stream audio directly.
-- **Standalone Terminal Experience** — Help menus, queue management, and track info all inside the terminal.
-- **Repeat Modes** — Loop a single track or your entire playlist.
+- **Search & Play** — Instant access to millions of tracks.
 - **Radio Mix** — Auto-queues related tracks when your list ends.
-- **Favorites & Downloads** — Save tracks for offline listening or quick access.
-- **Playlists** — Create and manage your own collections.
-- **Multilingual** — Support for English, Azerbaijani (AZ), and Turkish (TR).
+- **Playlist Management** — Create and manage local playlists.
+- **Multilingual Support** — Available in English, Azerbaijani, and Turkish.
+- **Downloads** — Save tracks for offline listening.
 
 ## License
 
-MIT
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+<div align="center">
+  Built with obsession by <b>Ziya Mammadov</b>
+</div>
