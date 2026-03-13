@@ -1,7 +1,7 @@
 # ytmusic-cli
 
 <div align="center">
-  <img src="assets/hero.png" width="600" alt="ytmusic-cli Hero">
+  <img src="assets/ytmusic-cli-ui.png" width="600" alt="ytmusic-cli Hero">
 </div>
 
 YouTube Music player for your terminal. Search and stream music directly from YouTube — no browser, no ads, no distractions.
@@ -72,11 +72,16 @@ The interface is completely keyboard-driven. Below are the primary controls used
 
 ## Interface
 
-The player features a clean, high-contrast terminal user interface (TUI) optimized for clarity and speed.
+The player features a high-fidelity terminal interface, precisely as seen on macOS.
 
 <div align="center">
-  <img src="assets/hero.png" width="550" alt="Interface Preview">
-  <p><i>The adaptive interface showing a live playback session with queue and track details.</i></p>
+  <img src="assets/ytmusic-cli-ui.png" width="550" alt="Interface Preview">
+  <p><i>Native terminal UI showcasing live playback, progress tracking, and queue management.</i></p>
+</div>
+
+<div align="center">
+  <img src="assets/desktop-view.png" width="550" alt="Desktop Integration">
+  <p><i>Seamlessly integrates into your macOS workspace.</i></p>
 </div>
 
 ---
