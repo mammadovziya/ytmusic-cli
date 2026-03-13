@@ -18,7 +18,7 @@ const VOLUME_STEP = 5;
 
 // Version handling
 if (process.argv.includes('--version') || process.argv.includes('-v')) {
-  process.stdout.write('0.3.1\n');
+  process.stdout.write('0.3.2\n');
   process.exit(0);
 }
 

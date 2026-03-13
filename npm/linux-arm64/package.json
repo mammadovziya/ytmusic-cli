@@ -1,6 +1,6 @@
 {
-  "name": "ytmusic-cli-linux-arm64",
-  "version": "0.3.1",
+  "name": "ytmusic-player-linux-arm64",
+  "version": "0.3.2",
   "description": "linux arm64 binary for ytmusic-cli",
   "os": [
     "linux"

@@ -1,6 +1,6 @@
 {
-  "name": "ytmusic-cli-win32-x64",
-  "version": "0.3.1",
+  "name": "ytmusic-player-win32-x64",
+  "version": "0.3.2",
   "description": "win32 x64 binary for ytmusic-cli",
   "os": [
     "win32"

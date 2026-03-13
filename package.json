@@ -1,6 +1,6 @@
 {
-  "name": "ytmusic-cli",
-  "version": "0.3.1",
+  "name": "ytmusic-player",
+  "version": "0.3.2",
   "description": "YouTube Music player for your terminal (ytmusic-cli)",
   "type": "module",
   "license": "MIT",
@@ -19,11 +19,11 @@
     "build": "bun scripts/build.ts"
   },
   "optionalDependencies": {
-    "ytmusic-cli-darwin-arm64": "0.3.0",
-    "ytmusic-cli-darwin-x64": "0.3.0",
-    "ytmusic-cli-linux-x64": "0.3.0",
-    "ytmusic-cli-linux-arm64": "0.3.0",
-    "ytmusic-cli-win32-x64": "0.3.0"
+    "ytmusic-player-darwin-arm64": "0.3.2",
+    "ytmusic-player-darwin-x64": "0.3.2",
+    "ytmusic-player-linux-x64": "0.3.2",
+    "ytmusic-player-linux-arm64": "0.3.2",
+    "ytmusic-player-win32-x64": "0.3.2"
   },
   "keywords": [
     "youtube",

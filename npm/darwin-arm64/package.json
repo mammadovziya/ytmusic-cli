@@ -1,6 +1,6 @@
 {
-  "name": "ytmusic-cli-darwin-arm64",
-  "version": "0.3.1",
+  "name": "ytmusic-player-darwin-arm64",
+  "version": "0.3.2",
   "description": "darwin arm64 binary for ytmusic-cli",
   "os": [
     "darwin"
