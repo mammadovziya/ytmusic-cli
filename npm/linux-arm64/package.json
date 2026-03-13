@@ -1,0 +1,17 @@
+{
+  "name": "@mammadovziya/ytmusic-cli-linux-arm64",
+  "version": "0.3.0",
+  "description": "linux arm64 binary for ytmusic-cli",
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "arm64"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "bin/"
+  ],
+  "license": "MIT"
+}

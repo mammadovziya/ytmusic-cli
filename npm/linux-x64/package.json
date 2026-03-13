@@ -1,0 +1,17 @@
+{
+  "name": "@mammadovziya/ytmusic-cli-linux-x64",
+  "version": "0.3.0",
+  "description": "linux x64 binary for ytmusic-cli",
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "bin/"
+  ],
+  "license": "MIT"
+}

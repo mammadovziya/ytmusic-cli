@@ -1,0 +1,6 @@
+node_modules/
+npm/*/bin/
+.DS_Store
+.planning/
+.pair-programming/
+.opencode/

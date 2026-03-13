@@ -1,0 +1,17 @@
+{
+  "name": "@mammadovziya/ytmusic-cli-darwin-arm64",
+  "version": "0.3.0",
+  "description": "darwin arm64 binary for ytmusic-cli",
+  "os": [
+    "darwin"
+  ],
+  "cpu": [
+    "arm64"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "bin/"
+  ],
+  "license": "MIT"
+}
