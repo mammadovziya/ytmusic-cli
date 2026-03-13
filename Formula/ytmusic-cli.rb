@@ -1,8 +1,8 @@
 class YtmusicCli < Formula
   desc "YouTube Music player for your terminal"
   homepage "https://github.com/mammadovziya/ytmusic-cli"
-  url "https://github.com/mammadovziya/ytmusic-cli/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "7f92509aed3d28e0882975e6df2e61061db9acb9b784892c7a5d11c5660c5c4d"
+  url "https://github.com/mammadovziya/ytmusic-cli/archive/refs/tags/v0.3.2.tar.gz"
+  sha256 "c38135fe2faef627d401153bfc071ed738421d4646f0b872e83a8ad6c4bf5359"
   license "MIT"
 
   depends_on "bun" => :build

@@ -28,7 +28,7 @@ winget install yt-dlp.yt-dlp
 
 ### via NPM
 ```sh
-npm install -g @mammadovziya/ytmusic-cli
+npm install -g ytmusic-player
 ```
 
 ### via Homebrew (macOS)
