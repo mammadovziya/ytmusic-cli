@@ -1,5 +1,5 @@
 {
-  "name": "@mammadovziya/ytmusic-cli-linux-x64",
+  "name": "ytmusic-cli-linux-x64",
   "version": "0.3.0",
   "description": "linux x64 binary for ytmusic-cli",
   "os": [

@@ -1,5 +1,5 @@
 {
-  "name": "@mammadovziya/ytmusic-cli-darwin-x64",
+  "name": "ytmusic-cli-darwin-x64",
   "version": "0.3.0",
   "description": "darwin x64 binary for ytmusic-cli",
   "os": [
