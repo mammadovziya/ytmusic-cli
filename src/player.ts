@@ -125,7 +125,11 @@ export class Player extends EventEmitter {
   async quit() {
     try { await this.send('quit'); } catch {}
     this.socket?.destroy();
-    this.proc?.kill();
+    this.socket = null;
+    if (this.proc) {
+      this.proc.kill();
+      this.proc = null;
+    }
   }
 
   async setVolume(level: number) {

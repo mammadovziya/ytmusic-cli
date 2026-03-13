@@ -7,7 +7,7 @@
 YouTube Music player for your terminal. Search and stream music directly from YouTube — no browser, no ads, no distractions.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-0.3.2-orange.svg)](https://github.com/mammadovziya/ytmusic-cli/releases)
+[![Version](https://img.shields.io/badge/version-0.3.3-orange.svg)](https://github.com/mammadovziya/ytmusic-cli/releases)
 [![Built with Bun](https://img.shields.io/badge/Built%20with-Bun-fbf0df?logo=bun&logoColor=black)](https://bun.sh)
 
 ---
@@ -39,6 +39,10 @@ brew tap mammadovziya/tap
 
 # Install the player
 brew install ytmusic-cli
+
+# You can now use any of these commands:
+ytmusic-player
+ym
 ```
 
 ### via NPM (Universal)

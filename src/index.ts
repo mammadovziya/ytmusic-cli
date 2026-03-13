@@ -18,7 +18,7 @@ const VOLUME_STEP = 5;
 
 // Version handling
 if (process.argv.includes('--version') || process.argv.includes('-v')) {
-  process.stdout.write('0.3.2\n');
+  process.stdout.write('0.3.3\n');
   process.exit(0);
 }
 
@@ -134,7 +134,7 @@ function renderCurrentScreen() {
       break;
     case 'playing':
       if (currentTrack) {
-        renderPlayer(player.state, queue, fetchingMix, isFavorite(favorites, currentTrack.id), shuffleMode, volume, isDownloaded(downloads, currentTrack.id), downloadingTracks.has(currentTrack.id));
+        renderPlayer(player.state, currentTrack!, queue, fetchingMix, isFavorite(favorites, currentTrack.id), shuffleMode, volume, isDownloaded(downloads, currentTrack.id), downloadingTracks.has(currentTrack.id));
       } else {
         goToSearch();
       }
@@ -203,7 +203,7 @@ async function startPlaying(track: Track, remainingTracks?: Track[]) {
   // Refresh display every second for smooth progress bar
   if (renderTimer) clearInterval(renderTimer);
   renderTimer = setInterval(() => {
-    if (appState === 'playing' && currentTrack) renderPlayer(player.state, queue, fetchingMix, isFavorite(favorites, currentTrack.id), shuffleMode, volume, isDownloaded(downloads, currentTrack.id), downloadingTracks.has(currentTrack.id));
+    if (appState === 'playing' && currentTrack) renderPlayer(player.state, currentTrack!, queue, fetchingMix, isFavorite(favorites, currentTrack.id), shuffleMode, volume, isDownloaded(downloads, currentTrack.id), downloadingTracks.has(currentTrack.id));
   }, 1000);
 
   if (remainingTracks && remainingTracks.length > 0) {
@@ -222,7 +222,7 @@ async function startPlaying(track: Track, remainingTracks?: Track[]) {
       .finally(() => { fetchingMix = false; });
   }
 
-  renderPlayer(player.state, queue, fetchingMix, isFavorite(favorites, currentTrack.id), shuffleMode, volume, isDownloaded(downloads, currentTrack.id), downloadingTracks.has(currentTrack.id));
+  renderPlayer(player.state, currentTrack!, queue, fetchingMix, isFavorite(favorites, currentTrack.id), shuffleMode, volume, isDownloaded(downloads, currentTrack.id), downloadingTracks.has(currentTrack.id));
 }
 
 // ─── Key handlers ───────────────────────────────────────────────────────────
@@ -423,7 +423,7 @@ async function onPlayingKey(key: string) {
       if (currentTrack) {
         const result = toggleFavorite(favorites, currentTrack);
         favorites = result.favorites;
-        renderPlayer(player.state, queue, fetchingMix, isFavorite(favorites, currentTrack.id), shuffleMode, volume, isDownloaded(downloads, currentTrack.id), downloadingTracks.has(currentTrack.id));
+        renderPlayer(player.state, currentTrack!, queue, fetchingMix, isFavorite(favorites, currentTrack.id), shuffleMode, volume, isDownloaded(downloads, currentTrack.id), downloadingTracks.has(currentTrack.id));
       }
       break;
     case 'l':
@@ -467,7 +467,7 @@ async function onPlayingKey(key: string) {
     case 'X':
       shuffleMode = !shuffleMode;
       if (shuffleMode && queue.length > 0) shuffleArray(queue);
-      renderPlayer(player.state, queue, fetchingMix, isFavorite(favorites, currentTrack!.id), shuffleMode, volume, isDownloaded(downloads, currentTrack!.id), downloadingTracks.has(currentTrack!.id));
+      renderPlayer(player.state, currentTrack!, queue, fetchingMix, isFavorite(favorites, currentTrack!.id), shuffleMode, volume, isDownloaded(downloads, currentTrack!.id), downloadingTracks.has(currentTrack!.id));
       break;
     case 'd':
     case 'D':
@@ -485,13 +485,13 @@ async function onPlayingKey(key: string) {
     case '=':
       volume = Math.min(100, volume + VOLUME_STEP);
       await player.setVolume(volume);
-      renderPlayer(player.state, queue, fetchingMix, isFavorite(favorites, currentTrack!.id), shuffleMode, volume, isDownloaded(downloads, currentTrack!.id), downloadingTracks.has(currentTrack!.id));
+      renderPlayer(player.state, currentTrack!, queue, fetchingMix, isFavorite(favorites, currentTrack!.id), shuffleMode, volume, isDownloaded(downloads, currentTrack!.id), downloadingTracks.has(currentTrack!.id));
       break;
     case '-':
     case '_':
       volume = Math.max(0, volume - VOLUME_STEP);
       await player.setVolume(volume);
-      renderPlayer(player.state, queue, fetchingMix, isFavorite(favorites, currentTrack!.id), shuffleMode, volume, isDownloaded(downloads, currentTrack!.id), downloadingTracks.has(currentTrack!.id));
+      renderPlayer(player.state, currentTrack!, queue, fetchingMix, isFavorite(favorites, currentTrack!.id), shuffleMode, volume, isDownloaded(downloads, currentTrack!.id), downloadingTracks.has(currentTrack!.id));
       break;
     case 'w':
     case 'W':
@@ -506,7 +506,7 @@ async function onPlayingKey(key: string) {
         const cur = modes.indexOf(player.state.repeatMode);
         const next = modes[(cur + 1) % modes.length]!;
         await player.setRepeatMode(next);
-        renderPlayer(player.state, queue, fetchingMix, isFavorite(favorites, currentTrack!.id), shuffleMode, volume, isDownloaded(downloads, currentTrack!.id), downloadingTracks.has(currentTrack!.id));
+        renderPlayer(player.state, currentTrack!, queue, fetchingMix, isFavorite(favorites, currentTrack!.id), shuffleMode, volume, isDownloaded(downloads, currentTrack!.id), downloadingTracks.has(currentTrack!.id));
       }
       break;
     case 'u':
@@ -559,7 +559,7 @@ function startRenderTimer() {
   if (renderTimer) clearInterval(renderTimer);
   renderTimer = setInterval(() => {
     if (appState === 'playing' && currentTrack) {
-      renderPlayer(player.state, queue, fetchingMix, isFavorite(favorites, currentTrack.id), shuffleMode, volume, isDownloaded(downloads, currentTrack.id), downloadingTracks.has(currentTrack.id));
+      renderPlayer(player.state, currentTrack!, queue, fetchingMix, isFavorite(favorites, currentTrack.id), shuffleMode, volume, isDownloaded(downloads, currentTrack.id), downloadingTracks.has(currentTrack.id));
     }
   }, 1000);
 }
@@ -634,9 +634,9 @@ function returnToPlayer() {
   if (currentTrack) {
     appState = 'playing';
     renderTimer = setInterval(() => {
-      if (appState === 'playing') renderPlayer(player.state, queue, fetchingMix, isFavorite(favorites, currentTrack!.id), shuffleMode, volume, isDownloaded(downloads, currentTrack!.id), downloadingTracks.has(currentTrack!.id));
+      if (appState === 'playing') renderPlayer(player.state, currentTrack!, queue, fetchingMix, isFavorite(favorites, currentTrack!.id), shuffleMode, volume, isDownloaded(downloads, currentTrack!.id), downloadingTracks.has(currentTrack!.id));
     }, 1000);
-    renderPlayer(player.state, queue, fetchingMix, isFavorite(favorites, currentTrack.id), shuffleMode, volume, isDownloaded(downloads, currentTrack.id), downloadingTracks.has(currentTrack.id));
+    renderPlayer(player.state, currentTrack!, queue, fetchingMix, isFavorite(favorites, currentTrack.id), shuffleMode, volume, isDownloaded(downloads, currentTrack.id), downloadingTracks.has(currentTrack.id));
   } else {
     goToSearch();
   }
@@ -860,7 +860,7 @@ function onLanguagePickerKey(key: string) {
     if (appState === 'playing' && currentTrack) {
         if (renderTimer) clearInterval(renderTimer);
         renderTimer = setInterval(() => {
-            if (appState === 'playing' && currentTrack) renderPlayer(player.state, queue, fetchingMix, isFavorite(favorites, currentTrack.id), shuffleMode, volume, isDownloaded(downloads, currentTrack.id), downloadingTracks.has(currentTrack.id));
+            if (appState === 'playing' && currentTrack) renderPlayer(player.state, currentTrack!, queue, fetchingMix, isFavorite(favorites, currentTrack.id), shuffleMode, volume, isDownloaded(downloads, currentTrack.id), downloadingTracks.has(currentTrack.id));
         }, 1000);
     }
     renderCurrentScreen();
@@ -869,7 +869,7 @@ function onLanguagePickerKey(key: string) {
     if (appState === 'playing' && currentTrack) {
         if (renderTimer) clearInterval(renderTimer);
         renderTimer = setInterval(() => {
-            if (appState === 'playing' && currentTrack) renderPlayer(player.state, queue, fetchingMix, isFavorite(favorites, currentTrack.id), shuffleMode, volume, isDownloaded(downloads, currentTrack.id), downloadingTracks.has(currentTrack.id));
+            if (appState === 'playing' && currentTrack) renderPlayer(player.state, currentTrack!, queue, fetchingMix, isFavorite(favorites, currentTrack.id), shuffleMode, volume, isDownloaded(downloads, currentTrack.id), downloadingTracks.has(currentTrack.id));
         }, 1000);
     }
     renderCurrentScreen();
@@ -926,12 +926,21 @@ async function main() {
   
   process.on('SIGINT', handleExit);
   process.on('SIGTERM', handleExit);
+  process.on('SIGHUP', handleExit); // Terminal closed
   process.on('SIGUSR2', handleExit); // For nodemon/bun --watch reloads
 
-  goToSearch();
+  // Catch unexpected crashes to cleanup terminal
+  process.on('uncaughtException', async (err) => {
+    await cleanup();
+    console.error('Uncaught Exception:', err);
+    process.exit(1);
+  });
+
+  await goToSearch();
 }
 
-main().catch(e => {
+main().catch(async (e) => {
+  await cleanup();
   console.error(e);
   process.exit(1);
 });

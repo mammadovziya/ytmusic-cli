@@ -11,11 +11,12 @@ class YtmusicCli < Formula
 
   def install
     system "bun", "install", "--no-save"
-    system "bun", "build", "--compile", "src/index.ts", "--outfile", "ytmusic-cli"
-    bin.install "ytmusic-cli"
+    system "bun", "build", "--compile", "src/index.ts", "--outfile", "ytmusic-player"
+    bin.install "ytmusic-player"
+    bin.install_symlink bin/"ytmusic-player" => "ym"
   end
 
   test do
-    system "#{bin}/ytmusic-cli", "--version"
+    system "#{bin}/ytmusic-player", "--version"
   end
 end
