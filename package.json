@@ -1,5 +1,5 @@
 {
-  "name": "ytmusic-cli",
+  "name": "@mammadovziya/ytmusic-cli",
   "version": "0.3.0",
   "description": "YouTube Music player for your terminal (ytmusic-cli)",
   "type": "module",

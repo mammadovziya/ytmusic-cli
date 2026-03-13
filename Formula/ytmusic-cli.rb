@@ -1,7 +1,7 @@
 class YtmusicCli < Formula
   desc "YouTube Music player for your terminal"
-  homepage "https://github.com/mammadovziya/yt-music-cli"
-  url "https://github.com/mammadovziya/yt-music-cli/archive/refs/tags/v0.3.0.tar.gz"
+  homepage "https://github.com/mammadovziya/ytmusic-cli"
+  url "https://github.com/mammadovziya/ytmusic-cli/archive/refs/tags/v0.3.0.tar.gz"
   sha256 "REPLACE_WITH_ACTUAL_SHA256" # Run `openssl dgst -sha256 v0.3.0.tar.gz` after tag release
   license "MIT"
 

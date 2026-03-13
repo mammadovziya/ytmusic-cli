@@ -45,7 +45,7 @@ npm publish --access public
 To publish on Homebrew, you need to create a "tap" repository on your GitHub.
 
 ### Step A: Create a Tap Repository
-1. Create a new public repository named `homebrew-ytmusic-cli` on GitHub.
+1. Create a new public repository named `homebrew-tap` on GitHub (this is the standard name for personal taps).
 2. Clone it locally.
 
 ### Step B: Prepare a Release
@@ -56,22 +56,32 @@ To publish on Homebrew, you need to create a "tap" repository on your GitHub.
 ### Step C: Update the Formula
 1. Get the SHA256 of the downloaded tarball:
    ```sh
-   openssl dgst -sha256 yt-music-cli-0.3.0.tar.gz
+   openssl dgst -sha256 ytmusic-cli-0.3.0.tar.gz
    ```
-2. Copy the content from [ytmusic-cli.rb](file:///Users/ziya/Documents/yt-music-cli/Formula/ytmusic-cli.rb) into your tap repository as `Formula/ytmusic-cli.rb`.
+2. Copy the content from [ytmusic-cli.rb](file:///Users/ziya/Documents/yt-music-cli/Formula/ytmusic-cli.rb) into your `homebrew-tap` repository as `Formula/ytmusic-cli.rb`.
 3. Update the `sha256` field in the file with the value from step 1.
-4. Commit and push the `Formula/` to your `homebrew-ytmusic-cli` repo.
+4. Commit and push to your `homebrew-tap` repo.
 
 ### Step D: Installation
 Your users can now install via:
 ```sh
-brew tap mammadovziya/ytmusic-cli
-brew install ytmusic-cli
+brew install mammadovziya/tap/ytmusic-cli
 ```
+Note: If you name your repo `homebrew-tap`, the command becomes `mammadovziya/tap/ytmusic-cli`.
 
 ---
 
-## 3. Maintenance
+## 3. How to get `brew install ytmusic-cli` (without tap name)
+
+To make it installable via just `brew install ytmusic-cli`, your project needs to be accepted into **Homebrew Core**.
+
+**Requirements for Homebrew Core:**
+- **Popularity**: Usually requires ~75+ stars on GitHub.
+- **Stability**: Needs to be a stable, tagged release.
+- **Source-based**: Homebrew Core prefers building from source rather than shipping pre-compiled binaries (unless it's a Cask).
+
+**Recommendation:**
+Start with your own tap (`mammadovziya/tap`). Once you have some users and stars, you can submit a Pull Request to [homebrew-core](https://github.com/Homebrew/homebrew-core).
 
 Whenever you update the version:
 1. Update `"version"` in all `package.json` files (root and sub-packages).
