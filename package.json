@@ -1,6 +1,6 @@
 {
   "name": "ytmusic-cli",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "YouTube Music player for your terminal (ytmusic-cli)",
   "type": "module",
   "license": "MIT",

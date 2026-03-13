@@ -2,17 +2,17 @@ class YtmusicCli < Formula
   desc "YouTube Music player for your terminal"
   homepage "https://github.com/mammadovziya/ytmusic-cli"
   url "https://github.com/mammadovziya/ytmusic-cli/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "REPLACE_WITH_ACTUAL_SHA256" # Run `openssl dgst -sha256 v0.3.0.tar.gz` after tag release
+  sha256 "636b6b9b7934ac18b6556d8528df72cb23f79b795b068b12277b65a4d02d0565"
   license "MIT"
 
+  depends_on "bun" => :build
   depends_on "mpv"
   depends_on "yt-dlp"
 
   def install
-    bin.install "bin/ytmusic-cli"
-    # Note: For brew installation, we should ideally point to the compiled bin 
-    # or ensure the node environment is handled if using the wrapper.
-    # Since we are using bun compile, we would typically ship the resulting binary.
+    system "bun", "install", "--no-save"
+    system "bun", "build", "--compile", "src/index.ts", "--outfile", "ytmusic-cli"
+    bin.install "ytmusic-cli"
   end
 
   test do

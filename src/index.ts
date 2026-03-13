@@ -16,6 +16,12 @@ const LEFT = '\x1B[D';
 const RIGHT = '\x1B[C';
 const VOLUME_STEP = 5;
 
+// Version handling
+if (process.argv.includes('--version') || process.argv.includes('-v')) {
+  process.stdout.write('0.3.1\n');
+  process.exit(0);
+}
+
 type AppState = 'search-input' | 'search-results' | 'playing' | 'favorites' | 'playlist-list' | 'playlist-detail' | 'playlist-picker' | 'new-playlist' | 'rename-playlist' | 'language-picker' | 'downloads' | 'help' | 'queue-view' | 'track-info';
 
 let appState: AppState = 'search-input';
